@@ -1,0 +1,39 @@
+The iteration
+number of iter 0 100.000000000000000
+number of iter 1 49.056249999999991
+number of iter 2 12.168160351562506
+number of iter 3 4.154566938137833
+number of iter 4 0.942069145457353
+number of iter 5 0.111733968730988
+number of iter 6 0.036521763479698
+number of iter 7 0.011756910839836
+number of iter 8 0.001635273842695
+number of iter 9 0.000402129235209
+number of iter 10 0.000125178200946
+number of iter 11 0.000025461833708
+number of iter 12 0.000003892567285
+number of iter 13 0.000001156038607
+number of iter 14 0.000000334523023
+number of iter 15 0.000000038147732
+number of iter 16 0.000000012062454
+number of iter 17 0.000000003872984
+number of iter 18 0.000000000612765
+number of iter 19 0.000000000128498
+number of iter 20 0.000000000039670
+number of iter 21 0.000000000009003
+number of iter 22 0.000000000001204
+number of iter 23 0.000000000000355
+number of iter 24 0.000000000000107
+number of iter 25 0.000000000000028
+
+The matrix to be iterated
+a: [[ 4. -1.  0.  1.  0.]
+ [-1.  4. -1.  0.  1.]
+ [ 0. -1.  4. -1.  0.]
+ [ 1.  0. -1.  4. -1.]
+ [ 0.  1.  0. -1.  4.]]
+
+b: [100. 100. 100. 100. 100.]
+
+The answer of x matrix:
+[25.000  35.714  42.857  35.714  25.000  ]
