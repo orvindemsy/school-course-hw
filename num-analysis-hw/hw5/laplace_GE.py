@@ -2,32 +2,26 @@ from numpy import *
 from matplotlib.pyplot import *
 import time
 
-# The definition is the same as GE or GS
-# CG method is very efficient
-
-def conjgrad(a, b, eps):
+def gausselim(a,b):
     n = b.size
-    imax = 10*n
     f = zeros(n, float)
-    r0 = b - dot(a,f)
-    p = r0
-    for i in range(0, imax):
-        alpha = dot(r0, r0)/dot(p, dot(a, p))
-        f = f + alpha*p
-        r1 = r0 - alpha*dot(a, p)
-        res = linalg.norm(r1)
-        beta = dot(r1, r1)/dot(r0, r0)
-        p = r1 + beta*p
-        r0 = r1
-        print (i, res)
-        if res < eps: return f
-    print ("not converged!")
-    return f
+    for k in range(0,n-1):
+        for i in range(k+1,n):
+            em = a[i,k]/a[k,k]
+            a[i,k] = em
+            b[i] -= em*b[k]
+            for j in range(k+1,n):
+                a[i,j] -= em*a[k,j]
 
-# Added time elapsed function
-def time_elapsed(t0):
-    t1 = time.time()
-    return t1-t0
+    f[n-1] = b[n-1]/a[n-1,n-1]
+
+    for i in range(n-2,-1,-1):
+        f[i] = b[i]
+        for j in range(n-1,i,-1):
+            f[i] -= a[i,j]*f[j]
+        f[i] = f[i]/a[i,i]
+
+    return f
 
 start = time.time()
 
@@ -76,8 +70,7 @@ for j in range(1, ny):
         a[n,n] = 1.0
         n += 1
 
-eps = 1e-8
-f = conjgrad(a,b,eps)
+f = gausselim(a,b)
 n = 0
 for j in range(1, ny):
     for i in range(1, nx):
@@ -85,17 +78,15 @@ for j in range(1, ny):
         n += 1
 
 # obtained solution in standard output
-print("solution =", T)
-
-time_e = time_elapsed(start)
-# print ("elapsed time =",time.time()-start)
-print("elapsed time =", time_e)
+print "solution =",T
+print "elapsed time =",time.time()-start
 
 # plot setting
-X, Y = meshgrid(x, y, indexing='ij')
+X, Y = meshgrid(x,y,indexing='ij')
 contour(X,Y,T)
 xlabel('X')
 ylabel('Y')
 cbar=colorbar()
 cbar.set_label('T')
 show()
+

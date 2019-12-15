@@ -22,7 +22,8 @@ def BTCS(f, th, d):
     fnew = (f/fold)*f
     return fnew
 
-d = 1    # diffusion number
+
+d = 0.5    # diffusion number
 imax = 100
 theta = linspace(0, 2*pi, imax)
 x = zeros(imax, float)
@@ -33,7 +34,7 @@ yc = sin(theta)
 
 for i in range(0, imax):
     f = 1.0 + 0j    # arbitrary complex number input
-    fnew = BTCS(f, theta[i], d)
+    fnew = FTCS(f, theta[i], d)
     G = fnew/f
     x[i] = G.real
     y[i] = G.imag

@@ -6,7 +6,7 @@ from matplotlib import animation
 #
 # the amplitude is damped but solution stable, the orange one is the solution
 # upwind is damped but better than lax
-# but if we used upwind with higher mode
+# but if we used upwind with highr mode
 # set mode = 10, it will rapidly damped
 
 # Lax wendroff scheme please make it

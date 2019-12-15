@@ -40,9 +40,9 @@ eps = 1e-8
 itr = gauss_seidel(T,nx,ny,beta,eps)
 
 # obtained solution in standard output
-print ("solution =",T)
-print ("max iteration",itr)
-print ("elapsed time =",time.time()-start)
+print "solution =",T
+print "max iteration",itr
+print "elapsed time =",time.time()-start
 
 # plot setting
 X, Y = meshgrid(x,y,indexing='ij')

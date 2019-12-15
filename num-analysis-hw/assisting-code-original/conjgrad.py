@@ -1,8 +1,3 @@
-'''
-Source: http://www.rhd.mech.tohoku.ac.jp/~ohnishi/free/gausselim.py
-Example of a Gauss Elimination method
-'''
-
 from numpy import *
 
 def conjgrad(a,b,eps,imax):
@@ -18,9 +13,8 @@ def conjgrad(a,b,eps,imax):
       beta = dot(r1,r1)/dot(r0,r0)
       p = r1 + beta*p
       r0 = r1
-      print (i, res)
+      print i, res
       if res < eps: return x
-
 
 a = array([[ 4.0,-1.0, 0.0, 1.0, 0.0],
            [-1.0, 4.0,-1.0, 0.0, 1.0],
@@ -31,6 +25,7 @@ b = array([100.0,100.0,100.0,100.0,100.0])
 imax = 100
 eps = 1e-13
 
-print (a,",",b)
+print a,",",b
 sol = conjgrad(a,b,eps,imax)
-print (sol)
+print sol
+

@@ -124,8 +124,8 @@ b = delete(rhs,ib,0)
 
 eps = 1e-8
 f, itr = gauss_seidel(A, b, eps)
-print (A,b,itr)
-print(f)
+print A,b,itr
+
 for n in range(0, na):   # restoring to active nodes
    T[ia[n]] = f[n]
 

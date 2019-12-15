@@ -28,8 +28,8 @@ start = time.time()
 # definition of computational domain
 w = 10.0
 h = 15.0
-nx = 5
-ny = 5
+nx = 10
+ny = 10
 nmax = (nx-1)*(ny-1)
 dx = w/nx
 dy = h/ny
@@ -45,13 +45,8 @@ a = zeros((nmax,nmax), float)
 T = zeros((nx+1,ny+1), float)
 
 # Dirichlet boundary condition for upper boundary (j = ny)
-# Neumann boundary condition for right boundary (i = nx)
 for i in range(0, nx+1):
     T[i,ny] = 100.0*sin(pi*x[i]/w)
-
-
-
-print(T.shape)
 
 n = 0
 for j in range(1, ny):
@@ -74,7 +69,7 @@ for j in range(1, ny):
             a[n+nx-1,n] = -bsq*dnm
         a[n,n] = 1.0
         n += 1
-'''
+
 f = gausselim(a,b)
 n = 0
 for j in range(1, ny):
@@ -83,8 +78,8 @@ for j in range(1, ny):
         n += 1
 
 # obtained solution in standard output
-print ("solution =",T)
-print ("elapsed time =",time.time()-start)
+print "solution =",T
+print "elapsed time =",time.time()-start
 
 # plot setting
 X, Y = meshgrid(x,y,indexing='ij')
@@ -95,4 +90,3 @@ cbar=colorbar()
 cbar.set_label('T')
 show()
 
-'''

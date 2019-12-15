@@ -34,6 +34,7 @@ def upwind(f, th, c):
     fnew = f - c*(f - fm1)
     return fnew
 
+
 c = 0.5    # convection number
 imax = 100
 theta = linspace(0, 2*pi, imax)

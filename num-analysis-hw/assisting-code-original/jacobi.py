@@ -1,9 +1,4 @@
-'''
-Source: http://www.rhd.mech.tohoku.ac.jp/~ohnishi/free/gausselim.py
-Example of a Jacobi method
-'''
 from numpy import *
-
 
 def jacobi(a,b,eps,imax):
    n = b.size
@@ -18,9 +13,8 @@ def jacobi(a,b,eps,imax):
          dxmax = max(abs(res),dxmax)
          xnew[i] = x[i] + res/a[i,i]
       x = xnew
-      print (it, dxmax)
+      print it, dxmax
       if dxmax < eps: return x
-
 
 a = array([[ 4.0,-1.0, 0.0, 1.0, 0.0],
            [-1.0, 4.0,-1.0, 0.0, 1.0],
@@ -31,6 +25,7 @@ b = array([100.0,100.0,100.0,100.0,100.0])
 imax = 100
 eps = 1e-13
 
-print (a,",",b)
+print a,",",b
 sol = jacobi(a,b,eps,imax)
-print (sol)
+print sol
+
